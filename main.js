@@ -181,8 +181,13 @@
    TIMELINE ANIMATIONS
    ============================================= */
 (function initTimeline() {
-  const bubbles = document.querySelectorAll('.tl-bubble');
-  if (!bubbles.length) return;
+  const items = document.querySelectorAll('.tl-item');
+  if (!items.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach((item) => item.classList.add('visible'));
+    return;
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -193,8 +198,11 @@
         }
       });
     },
-    { threshold: 0.1 }
+    {
+      threshold: 0.25,
+      rootMargin: '0px 0px -60px 0px',
+    }
   );
 
-  bubbles.forEach((bubble) => observer.observe(bubble));
+  items.forEach((item) => observer.observe(item));
 })();
