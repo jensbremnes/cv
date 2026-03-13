@@ -162,7 +162,7 @@ img {
 
 .hero-name {
   font-family: var(--font-head);
-  font-size: clamp(1.2rem, 5.5vw, 4.5rem);
+  font-size: 3.75rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
@@ -254,6 +254,10 @@ img {
   height: 40px;
   background: linear-gradient(to bottom, var(--text-muted), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
+  animation-play-state: paused;  /* Fix 6: resumed by IntersectionObserver */
+}
+.scroll-line.is-playing {
+  animation-play-state: running;
 }
 
 @keyframes scrollPulse {
@@ -267,13 +271,13 @@ img {
 .section {
   padding: 6rem 2rem;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateX(-40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .section.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 #experience {
@@ -348,7 +352,11 @@ img {
   background: conic-gradient(from 0deg, var(--accent-bio), var(--accent-blue), var(--accent-bio));
   box-shadow: 0 0 40px rgba(0, 229, 176, 0.25), 0 0 80px rgba(0, 229, 176, 0.1);
   animation: ringRotate 8s linear infinite;
+  animation-play-state: paused;  /* Fix 6: resumed by IntersectionObserver */
   z-index: -1;
+}
+.photo-ring.is-playing::before {
+  animation-play-state: running;
 }
 
 @keyframes ringRotate {
@@ -1029,7 +1037,11 @@ footer p {
   pointer-events: none;
   background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(0,229,176,0.12) 0%, transparent 70%);
   animation: shimmerDrift 6s ease-in-out infinite;
+  animation-play-state: paused;  /* Fix 6: resumed by IntersectionObserver */
   will-change: opacity, transform;
+}
+#surface-shimmer-overlay.is-playing {
+  animation-play-state: running;
 }
 
 @keyframes shimmerDrift {
@@ -1052,6 +1064,9 @@ footer p {
   position: absolute;
   inset: 0;
   background: transparent;
+  /* Fix 5: driven by --blur CSS var set via JS setProperty (avoids per-frame string churn) */
+  backdrop-filter: blur(var(--blur, 0px));
+  -webkit-backdrop-filter: blur(var(--blur, 0px));
 }
 
 /* Caustic + god-ray canvas — screen blend, opacity JS-driven */

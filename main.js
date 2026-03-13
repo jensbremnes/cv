@@ -1,11 +1,5 @@
 'use strict';
 
-// Scroll to top on page load / refresh, overriding any hash in the URL
-if (history.scrollRestoration) history.scrollRestoration = 'manual';
-window.addEventListener('load', () => {
-  history.replaceState(null, '', window.location.pathname);
-  window.scrollTo(0, 0);
-});
 
 window.oceanState = { particleDepthFactor: 0, particleSlowFactor: 1, scrollT: 0 };
 
@@ -187,13 +181,16 @@ function initSubmergenceScroll() {
 
   let scrollDirty = false;
   let lastT = -1;
+  let heroH = hero.offsetHeight || window.innerHeight;  // Fix 1: cache, avoid layout in RAF
 
+  window.addEventListener('resize', () => {
+    heroH = hero.offsetHeight || window.innerHeight;
+  }, { passive: true });
   window.addEventListener('scroll', () => { scrollDirty = true; }, { passive: true });
 
   function update() {
     if (scrollDirty) {
       scrollDirty = false;
-      const heroH = hero.offsetHeight || window.innerHeight;
       const t = Math.min(1, window.scrollY / heroH);
 
       if (Math.abs(t - lastT) > 0.0005) {
@@ -212,9 +209,8 @@ function initSubmergenceScroll() {
           const fa  = fillAlpha.toFixed(3);
           const fa2 = fillAlpha.toFixed(3);
           waterFill.style.background          = `linear-gradient(to bottom, rgba(0,20,50,${fa}), rgba(5,10,18,${fa2}))`;
-          const blurStr = blur > 0 ? `blur(${blur.toFixed(2)}px)` : '';
-          waterFill.style.backdropFilter       = blurStr;
-          waterFill.style.webkitBackdropFilter = blurStr;
+          // Fix 5: CSS custom property avoids per-frame style recalc storms
+          waterFill.style.setProperty('--blur', blur > 0 ? `${blur.toFixed(2)}px` : '0px');
         }
 
         // Caustic canvas opacity
@@ -244,7 +240,7 @@ function initCausticCanvas() {
   const ctx = canvas.getContext('2d');
 
   const isMobile  = window.innerWidth < 768;
-  const cellCount = isMobile ? 80 : 200;
+  const cellCount = isMobile ? 32 : 120;  // Fix 4: ~60% mobile / ~40% desktop reduction
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -365,12 +361,28 @@ function initCausticCanvas() {
   const drawWaves    = initWaveCanvas();
   const drawCaustics = initCausticCanvas();
 
+  let rafId = null;
   function loop(ts) {
     if (drawWaves)    drawWaves(ts);
     if (drawCaustics) drawCaustics(ts);
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
-  requestAnimationFrame(loop);
+
+  // Fix 2: pause RAF when hero is completely off-screen
+  const heroEl = document.getElementById('hero');
+  if (heroEl) {
+    new IntersectionObserver((entries) => {
+      const visible = entries[0].isIntersecting;
+      if (visible && rafId === null) {
+        rafId = requestAnimationFrame(loop);
+      } else if (!visible && rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }, { threshold: 0 }).observe(heroEl);
+  } else {
+    rafId = requestAnimationFrame(loop);
+  }
 })();
 
 /* =============================================
@@ -403,77 +415,33 @@ function initCausticCanvas() {
   btnCitations.addEventListener('click', () => applySort(true));
 })();
 
+
+
 /* =============================================
-   SLIDE SECTION NAVIGATION
+   PAUSE OFF-SCREEN CSS ANIMATIONS (Fix 6)
    ============================================= */
-(function initSlideNav() {
-  const NAV_H = 64;
-  const sections = Array.from(document.querySelectorAll('#hero, .section'));
-  let sliding = false;
+(function initAnimationVisibility() {
+  const hero  = document.getElementById('hero');
+  const about = document.getElementById('about');
 
-  function currentIndex() {
-    const threshold = window.scrollY + NAV_H + 2;
-    let idx = 0;
-    for (let i = 0; i < sections.length; i++) {
-      if (sections[i].offsetTop <= threshold) idx = i;
-    }
-    return idx;
+  if (hero) {
+    const heroTargets = [
+      document.querySelector('.scroll-line'),
+      document.getElementById('surface-shimmer-overlay'),
+    ].filter(Boolean);
+
+    new IntersectionObserver((entries) => {
+      const visible = entries[0].isIntersecting;
+      heroTargets.forEach(el => el.classList.toggle('is-playing', visible));
+    }, { threshold: 0 }).observe(hero);
   }
 
-  function slideTo(idx) {
-    if (idx < 0 || idx >= sections.length || sliding) return;
-    sliding = true;
-    const top = Math.max(0, sections[idx].offsetTop - NAV_H);
-    window.scrollTo({ top, behavior: 'smooth' });
-    // Release lock when scroll settles (scrollend or timeout fallback)
-    const unlock = () => { sliding = false; };
-    window.addEventListener('scrollend', unlock, { once: true });
-    setTimeout(unlock, 1000);
+  if (about) {
+    const photoRing = about.querySelector('.photo-ring');
+    if (photoRing) {
+      new IntersectionObserver((entries) => {
+        photoRing.classList.toggle('is-playing', entries[0].isIntersecting);
+      }, { threshold: 0 }).observe(about);
+    }
   }
-
-  // Wheel / trackpad
-  window.addEventListener('wheel', (e) => {
-    if (sliding) { e.preventDefault(); return; }
-
-    const idx = currentIndex();
-    const sec = sections[idx];
-    const secBottom = sec.offsetTop + sec.offsetHeight;
-    const viewBottom = window.scrollY + window.innerHeight;
-    const secTop = sec.offsetTop - NAV_H;
-
-    const goingDown = e.deltaY > 0;
-    const atBottom  = goingDown  && viewBottom >= secBottom - 10;
-    const atTop     = !goingDown && window.scrollY <= secTop + 10;
-
-    if (atBottom || atTop) {
-      e.preventDefault();
-      slideTo(idx + (goingDown ? 1 : -1));
-    }
-  }, { passive: false });
-
-  // Touch swipe
-  let touchStartY = 0;
-  window.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  window.addEventListener('touchend', (e) => {
-    if (sliding) return;
-    const delta = touchStartY - e.changedTouches[0].clientY;
-    if (Math.abs(delta) < 40) return; // ignore tiny swipes
-
-    const idx = currentIndex();
-    const sec = sections[idx];
-    const secBottom = sec.offsetTop + sec.offsetHeight;
-    const viewBottom = window.scrollY + window.innerHeight;
-    const secTop = sec.offsetTop - NAV_H;
-
-    const goingDown = delta > 0;
-    const atBottom  = goingDown  && viewBottom >= secBottom - 10;
-    const atTop     = !goingDown && window.scrollY <= secTop + 10;
-
-    if (atBottom || atTop) {
-      slideTo(idx + (goingDown ? 1 : -1));
-    }
-  }, { passive: true });
 })();
