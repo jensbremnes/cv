@@ -418,11 +418,10 @@ function initUnderwaterLife() {
 
   function draw(ts) {
     const depth = window.oceanState.particleDepthFactor;
-    if (depth <= 0) return;
-
     const W = window.innerWidth;
     const H = window.innerHeight;
     ctx.clearRect(0, 0, W, H);
+    if (depth <= 0) return;
 
     // ---- Plankton ----
     for (const p of plankton) {
