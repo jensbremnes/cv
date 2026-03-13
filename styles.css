@@ -1053,10 +1053,16 @@ footer p {
 #submergence-overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 1;
   pointer-events: none;
   contain: strict;
   will-change: transform, opacity;
+}
+
+/* Ensure page sections render above the particle overlay */
+section {
+  position: relative;
+  z-index: 2;
 }
 
 /* Water fill — color tint + backdrop blur, driven by JS */
@@ -1077,6 +1083,14 @@ footer p {
   pointer-events: none;
   opacity: 0;
   will-change: opacity;
+}
+
+/* Underwater life — plankton + fish silhouettes */
+#underwater-life {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
 }
 
 /* =============================================
@@ -1112,6 +1126,10 @@ footer p {
   }
 
   #caustic-canvas {
+    display: none;
+  }
+
+  #underwater-life {
     display: none;
   }
 }

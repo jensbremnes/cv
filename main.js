@@ -348,6 +348,133 @@ function initCausticCanvas() {
 
 
 /* =============================================
+   UNDERWATER LIFE CANVAS
+   ============================================= */
+function initUnderwaterLife() {
+  const canvas = document.getElementById('underwater-life');
+  if (!canvas) return null;
+  const ctx = canvas.getContext('2d');
+  const isMobile = window.innerWidth < 768;
+
+  // --- Plankton ---
+  const PLANKTON_COUNT = isMobile ? 20 : 50;
+  const plankton = Array.from({ length: PLANKTON_COUNT }, () => ({
+    x:          Math.random(),
+    y:          0.4 + Math.random() * 0.6,
+    r:          1 + Math.random() * 2,
+    speed:      0.00004 + Math.random() * 0.00006,
+    wobbleFreq: 0.0008  + Math.random() * 0.001,
+    wobbleAmp:  0.008   + Math.random() * 0.012,
+    phase:      Math.random() * Math.PI * 2,
+    isCyan:     Math.random() > 0.4,
+    _lastTs:    null,
+  }));
+
+  // --- Fish ---
+  const FISH_COUNT = isMobile ? 3 : 5;
+  function makeFish(exitedGoingRight) {
+    const goingRight = exitedGoingRight === undefined
+      ? Math.random() > 0.5
+      : !exitedGoingRight;
+    return {
+      x:          goingRight ? -0.15 : 1.15,
+      y:          0.15 + Math.random() * 0.70,
+      vx:         (0.000015 + Math.random() * 0.00002) * (goingRight ? 1 : -1),
+      vy:         (Math.random() - 0.5) * 0.000004,
+      width:      60 + Math.random() * 120,
+      opacity:    0.04 + Math.random() * 0.04,
+      goingRight,
+      _lastTs:    null,
+    };
+  }
+  const fish = Array.from({ length: FISH_COUNT }, () => makeFish());
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width  = window.innerWidth  * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function drawFishShape(cx, cy, w, facingRight) {
+    const bw   = w * 0.75;
+    const bh   = w * 0.13;
+    const tailW = w * 0.28;
+    const tailL = w * 0.22;
+    const dir  = facingRight ? 1 : -1;
+    // Body
+    ctx.beginPath();
+    ctx.ellipse(cx + dir * w * 0.04, cy, bw, bh, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // Tail
+    const rearX = cx - dir * (bw - w * 0.04);
+    ctx.beginPath();
+    ctx.moveTo(rearX,                cy - tailW);
+    ctx.lineTo(rearX,                cy + tailW);
+    ctx.lineTo(rearX - dir * tailL,  cy);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function draw(ts) {
+    const depth = window.oceanState.particleDepthFactor;
+    if (depth <= 0) return;
+
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    // ---- Plankton ----
+    for (const p of plankton) {
+      const dt = p._lastTs !== null ? ts - p._lastTs : 0;
+      p._lastTs = ts;
+      p.y -= p.speed * dt;
+      if (p.y < -0.02) { p.y = 1.02; p.x = Math.random(); }
+
+      const px = (p.x + Math.sin(ts * p.wobbleFreq + p.phase) * p.wobbleAmp) * W;
+      const py = p.y * H;
+      const alpha = depth * (p.isCyan ? 0.12 : 0.09);
+      const [r, g, b] = p.isCyan ? [0, 229, 176] : [126, 179, 255];
+
+      const grad = ctx.createRadialGradient(px, py, 0, px, py, p.r * 3);
+      grad.addColorStop(0,   `rgba(${r},${g},${b},${alpha.toFixed(3)})`);
+      grad.addColorStop(0.4, `rgba(${r},${g},${b},${(alpha * 0.4).toFixed(3)})`);
+      grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+
+      ctx.beginPath();
+      ctx.arc(px, py, p.r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(px, py, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${(depth * 0.2).toFixed(3)})`;
+      ctx.fill();
+    }
+
+    // ---- Fish ----
+    for (const f of fish) {
+      const dt = f._lastTs !== null ? ts - f._lastTs : 0;
+      f._lastTs = ts;
+      f.x += f.vx * dt * window.oceanState.particleSlowFactor;
+      f.y += f.vy * dt;
+      if (f.y < 0.10) { f.y = 0.10; f.vy =  Math.abs(f.vy); }
+      if (f.y > 0.90) { f.y = 0.90; f.vy = -Math.abs(f.vy); }
+
+      const exited = f.goingRight ? f.x > 1.15 : f.x < -0.15;
+      if (exited) { Object.assign(f, makeFish(f.goingRight)); continue; }
+
+      ctx.fillStyle = `rgba(2,8,18,${(f.opacity * depth).toFixed(3)})`;
+      drawFishShape(f.x * W, f.y * H, f.width, f.goingRight);
+    }
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  return draw;
+}
+
+/* =============================================
    MASTER OCEAN RAF LOOP
    ============================================= */
 (function initOceanRAF() {
@@ -358,13 +485,15 @@ function initCausticCanvas() {
 
   if (reducedMotion) return;
 
-  const drawWaves    = initWaveCanvas();
-  const drawCaustics = initCausticCanvas();
+  const drawWaves         = initWaveCanvas();
+  const drawCaustics      = initCausticCanvas();
+  const drawUnderwaterLife = initUnderwaterLife();
 
   let rafId = null;
   function loop(ts) {
-    if (drawWaves)    drawWaves(ts);
-    if (drawCaustics) drawCaustics(ts);
+    if (drawWaves)         drawWaves(ts);
+    if (drawCaustics)      drawCaustics(ts);
+    if (drawUnderwaterLife) drawUnderwaterLife(ts);
     rafId = requestAnimationFrame(loop);
   }
 
@@ -375,7 +504,7 @@ function initCausticCanvas() {
       const visible = entries[0].isIntersecting;
       if (visible && rafId === null) {
         rafId = requestAnimationFrame(loop);
-      } else if (!visible && rafId !== null) {
+      } else if (!visible && rafId !== null && window.oceanState.particleDepthFactor <= 0) {
         cancelAnimationFrame(rafId);
         rafId = null;
       }
