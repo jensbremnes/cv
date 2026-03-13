@@ -268,18 +268,6 @@ function initWaveCanvas() {
         grad.addColorStop(1,   'rgba(0,229,176,0)');
         ctx.fillStyle = grad;
         ctx.fill();
-
-        // Foam dots near wave crests
-        ctx.fillStyle = 'rgba(200,255,240,0.5)';
-        for (let x = 0; x <= w; x += foamStep) {
-          const sinVal = Math.sin(x * layer.freq + offset);
-          if (sinVal > 0.5) {
-            const y = baseY + sinVal * layer.amp;
-            ctx.beginPath();
-            ctx.arc(x, y, 0.8 + (sinVal - 0.5) * 2.4, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
       } else {
         ctx.fillStyle = layer.color;
         ctx.fill();
