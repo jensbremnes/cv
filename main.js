@@ -67,7 +67,7 @@ window.oceanState = { particleDepthFactor: 0, particleSlowFactor: 1, scrollT: 0 
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.05 }
   );
 
   sections.forEach((s) => observer.observe(s));
