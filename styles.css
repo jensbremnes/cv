@@ -650,61 +650,6 @@ img {
   font-size: 0.8rem;
 }
 
-/* =============================================
-   TEACHING
-   ============================================= */
-.teaching-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
-}
-
-.teaching-card {
-  background: var(--bg-panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.teaching-card:hover {
-  border-color: var(--accent-bio);
-  box-shadow: 0 0 20px rgba(0, 229, 176, 0.1);
-}
-
-.teaching-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.teaching-years {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
-
-.teaching-course {
-  font-family: var(--font-head);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.teaching-role {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-bio);
-  margin-bottom: 0.75rem;
-}
-
-.teaching-desc {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
 
 /* =============================================
    CONTACT
@@ -1157,10 +1102,6 @@ section {
   }
 
   .theme-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .teaching-grid {
     grid-template-columns: 1fr;
   }
 }

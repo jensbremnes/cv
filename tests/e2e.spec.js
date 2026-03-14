@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('nav links', async ({ page }) => {
-  const hrefs = ['#about', '#research', '#teaching', '#contact'];
+  const hrefs = ['#about', '#research', '#contact'];
   for (const href of hrefs) {
     const link = page.locator(`nav a[href="${href}"]`);
     await expect(link).toHaveCount(1);
