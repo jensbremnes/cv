@@ -1286,7 +1286,8 @@ section {
   font-size: 0.78rem;
   color: var(--accent-bio);
   letter-spacing: 0.04em;
-  margin-top: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
 }
 
 @media (max-width: 900px) {
