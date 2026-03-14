@@ -1191,14 +1191,15 @@ section {
   margin-bottom: 0.5rem;
 }
 
-.media-feature {
-  max-width: 900px;
-  margin: 0 auto;
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .media-card {
   display: flex;
-  gap: 0;
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
@@ -1216,7 +1217,8 @@ section {
 
 .media-card-image {
   position: relative;
-  flex: 0 0 42%;
+  flex: 0 0 auto;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -1249,11 +1251,10 @@ section {
 
 .media-card-body {
   flex: 1;
-  padding: 2rem;
+  padding: 1.25rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .media-date {
@@ -1288,12 +1289,14 @@ section {
   margin-top: 0.5rem;
 }
 
-@media (max-width: 680px) {
-  .media-card {
-    flex-direction: column;
+@media (max-width: 900px) {
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .media-card-image {
-    flex: 0 0 220px;
-    height: 220px;
+}
+
+@media (max-width: 560px) {
+  .media-grid {
+    grid-template-columns: 1fr;
   }
 }
