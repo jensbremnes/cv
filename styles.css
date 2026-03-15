@@ -504,6 +504,12 @@ img {
   gap: 1.25rem;
 }
 
+.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-card {
   background: var(--bg-panel);
   border: 1px solid var(--border);
