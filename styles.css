@@ -1116,6 +1116,10 @@ section {
     width: 140px;
     height: 140px;
   }
+
+  .hero-tagline {
+    font-size: 0.875rem;
+  }
 }
 
 .pub-citations {
