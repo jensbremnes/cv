@@ -577,6 +577,7 @@ img {
   font-size: 0.875rem;
   color: var(--text-muted);
   line-height: 1.6;
+  text-align: justify;
 }
 
 /* =============================================
