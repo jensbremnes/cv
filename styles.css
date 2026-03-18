@@ -1144,6 +1144,18 @@ section {
   vertical-align: middle;
 }
 .pub-citations:empty { display: none; }
+.pub-award {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-bio);
+  border: 1px solid rgba(0,229,176,0.35);
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  letter-spacing: 0.04em;
+}
 
 /* =============================================
    MEDIA SECTION
@@ -1159,7 +1171,7 @@ section {
 
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
