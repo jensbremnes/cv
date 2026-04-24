@@ -100,3 +100,29 @@
   btnDate.addEventListener('click',      () => applySort(false));
   btnCitations.addEventListener('click', () => applySort(true));
 })();
+
+
+/* =============================================
+   THEME TOGGLE
+   ============================================= */
+(function initThemeToggle() {
+  const STORAGE_KEY = 'cv-theme';
+  const root = document.documentElement;
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+
+  btn.addEventListener('click', function () {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      root.removeAttribute('data-theme');
+      localStorage.setItem(STORAGE_KEY, 'light');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem(STORAGE_KEY, 'dark');
+    }
+  });
+})();
