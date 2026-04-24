@@ -9,6 +9,10 @@ test-results/
 about-me/
 obsolete/
 
+# Local dev utilities
+.claude/
+start-server.command
+
 # System files
 .DS_Store
 Thumbs.db
