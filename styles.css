@@ -164,18 +164,19 @@ ul, ol {
 
 .header-grid {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 176px 1fr;
   gap: 2.5rem;
   align-items: start;
 }
 
 .profile-photo {
-  width: 140px;
-  height: 140px;
+  width: 176px;
+  height: 176px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 45%;
   border: 3px solid var(--border);
-  margin-top: 0.25rem;
+  margin-top: 3rem;
 }
 
 .header-name {
