@@ -462,6 +462,13 @@ ul, ol {
   margin-bottom: 0.15rem;
 }
 
+.pos-prose {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-top: 0.4rem;
+}
+
 /* =============================================
    PUBLICATIONS
    ============================================= */
@@ -598,6 +605,13 @@ ul, ol {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   white-space: nowrap;
+}
+
+.teaching-table td.skills-label {
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  width: 160px;
 }
 
 .research-interests-list {
