@@ -600,6 +600,29 @@ ul, ol {
   white-space: nowrap;
 }
 
+.research-interests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.research-interests-list li {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.research-interests-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 .supervision-list {
   font-size: 0.9rem;
   color: var(--text-muted);
