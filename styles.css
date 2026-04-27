@@ -207,6 +207,7 @@ ul, ol {
   max-width: 560px;
   margin-bottom: 1rem;
   line-height: 1.7;
+  text-align: justify;
 }
 
 .header-links {
@@ -1282,10 +1283,9 @@ footer p {
 
   /* ---- Teaching ---- */
   .teaching-table {
-    width: 100%;
+    width: calc(100% - 1pt);
     font-size: 8.5pt;
     border-collapse: collapse;
-    outline: 0.5pt solid #ddd;
   }
 
   .teaching-table th,
@@ -1318,10 +1318,9 @@ footer p {
 
   /* ---- Skills ---- */
   .skills-table {
-    width: 100%;
+    width: calc(100% - 1pt);
     font-size: 8.5pt;
     border-collapse: collapse;
-    outline: 0.5pt solid #ddd;
   }
 
   .skills-table th,
