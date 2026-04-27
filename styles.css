@@ -914,7 +914,14 @@ footer p {
     gap: 0.15rem;
   }
 
+  .nav-inner {
+    gap: 0.75rem;
+    padding: 0 1rem;
+  }
+
   .nav-links {
+    flex: 1;
+    min-width: 0;
     gap: 0.65rem;
     overflow-x: auto;
     white-space: nowrap;
@@ -924,6 +931,11 @@ footer p {
 
   .nav-links::-webkit-scrollbar {
     display: none;
+  }
+
+  .nav-links.nav-overflow-right {
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    mask-image: linear-gradient(to right, black 70%, transparent 100%);
   }
 
   .nav-links a {

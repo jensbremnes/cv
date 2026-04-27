@@ -44,6 +44,25 @@
 
 
 /* =============================================
+   MOBILE NAV SCROLL HINT
+   ============================================= */
+(function initNavScrollHint() {
+  const navLinks = document.querySelector('.nav-links');
+  if (!navLinks) return;
+
+  function update() {
+    const hasOverflow = navLinks.scrollWidth > navLinks.clientWidth;
+    const atEnd = navLinks.scrollLeft + navLinks.clientWidth >= navLinks.scrollWidth - 2;
+    navLinks.classList.toggle('nav-overflow-right', hasOverflow && !atEnd);
+  }
+
+  navLinks.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+
+
+/* =============================================
    SCROLL-IN ANIMATIONS
    ============================================= */
 (function initScrollAnimations() {
