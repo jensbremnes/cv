@@ -75,7 +75,7 @@ ul, ol {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 2rem 0;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -165,7 +165,7 @@ ul, ol {
 .header-grid {
   display: grid;
   grid-template-columns: 176px 1fr;
-  gap: 2.5rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
   align-items: start;
 }
 
@@ -1285,7 +1285,7 @@ footer p {
     width: 100%;
     font-size: 8.5pt;
     border-collapse: collapse;
-    border: 0.5pt solid #ddd;
+    outline: 0.5pt solid #ddd;
   }
 
   .teaching-table th,
@@ -1321,7 +1321,7 @@ footer p {
     width: 100%;
     font-size: 8.5pt;
     border-collapse: collapse;
-    border: 0.5pt solid #ddd;
+    outline: 0.5pt solid #ddd;
   }
 
   .skills-table th,
