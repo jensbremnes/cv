@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Jens E. Bremnes |CV</title>
-<meta name="description" content="CV of Jens Einar Bremnes, PhD — researcher in marine robotics."/>
+<meta content="CV of Jens Einar Bremnes, PhD — researcher in marine robotics." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
@@ -12,604 +13,562 @@
 <link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-inner">
-    <ul class="nav-links">
-      <li><a href="#research">Research</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#positions">Positions</a></li>
-      <li><a href="#research-projects">Projects</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="btn-theme" id="theme-toggle" aria-label="Toggle dark mode" type="button">
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-  </div>
+<div class="nav-inner">
+<ul class="nav-links">
+<li><a href="#research">Research</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#positions">Positions</a></li>
+<li><a href="#research-projects">Projects</a></li>
+<li><a href="#publications">Publications</a></li>
+<li><a href="#teaching">Teaching</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button aria-label="Toggle dark mode" class="btn-theme" id="theme-toggle" type="button">
+<svg aria-hidden="true" class="icon-sun" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+<svg aria-hidden="true" class="icon-moon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+</button>
+</div>
 </nav>
-
 <!-- HEADER -->
 <header id="home">
-  <div class="container">
-    <div class="header-grid">
-      <div class="header-photo-col">
-        <img alt="Jens Einar Bremnes" class="profile-photo" height="176" loading="eager" src="jens_einar_bremnes_photo.jpg" width="176"/>
-      </div>
-      <div class="header-info">
-        <h1 class="header-name">Jens Einar Bremnes</h1>
-        <p class="header-title">PhD · Marine Cybernetics, NTNU</p>
-        <p class="header-affil">Research Scientist &amp; Engineer · GeoNord AS</p>
-        <p class="header-bio">
+<div class="container">
+<div class="header-grid">
+<div class="header-photo-col">
+<img alt="Jens Einar Bremnes" class="profile-photo" height="176" loading="eager" src="jens_einar_bremnes_photo.jpg" width="176"/>
+</div>
+<div class="header-info">
+<h1 class="header-name">Jens Einar Bremnes</h1>
+<p class="header-title">PhD · Marine Cybernetics, NTNU</p>
+<p class="header-affil">Research Scientist &amp; Engineer · GeoNord AS</p>
+<p class="header-bio">
           Applied researcher and engineer in marine robotics and autonomous systems, with experience across academia, defence, and industry.
           My work spans autonomy, risk modeling, planning, control and navigation, with experimental validation in real-world environments.
         </p>
-        <div class="header-links">
-          <a class="header-link" href="mailto:jensbremnes@gmail.com">✉ Email</a>
-          <a class="header-link" href="https://scholar.google.com/citations?user=iGO-GD4AAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar</a>
-          <a class="header-link" href="https://github.com/jensbremnes" rel="noopener" target="_blank">GitHub</a>
-          <a class="header-link" href="https://orcid.org/0000-0002-5917-5281" rel="noopener" target="_blank">ORCID</a>
-          <a class="header-link" href="https://www.linkedin.com/in/jensbremnes/" rel="noopener" target="_blank">LinkedIn</a>
-          <a class="header-link" href="https://www.researchgate.net/profile/Jens-Bremnes-2" rel="noopener" target="_blank">ResearchGate</a>
-        </div>
-        <div class="header-actions">
-          <a class="btn-cv" download href="JensEinarBremnes_CV.pdf">Download CV (PDF) ↓</a>
-        </div>
-        <div class="header-stats">
-          <div class="stat">
-            <span class="stat-value" id="stat-citations">129</span>
-            <span class="stat-label">Citations</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value" id="stat-hindex">7</span>
-            <span class="stat-label">h-index</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">8</span>
-            <span class="stat-label">Journal Papers</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">8</span>
-            <span class="stat-label">Conference Papers</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="header-links">
+<a class="header-link" href="mailto:jensbremnes@gmail.com">✉ Email</a>
+<a class="header-link" href="https://scholar.google.com/citations?user=iGO-GD4AAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar</a>
+<a class="header-link" href="https://github.com/jensbremnes" rel="noopener" target="_blank">GitHub</a>
+<a class="header-link" href="https://orcid.org/0000-0002-5917-5281" rel="noopener" target="_blank">ORCID</a>
+<a class="header-link" href="https://www.linkedin.com/in/jensbremnes/" rel="noopener" target="_blank">LinkedIn</a>
+<a class="header-link" href="https://www.researchgate.net/profile/Jens-Bremnes-2" rel="noopener" target="_blank">ResearchGate</a>
+</div>
+<div class="header-actions">
+<a class="btn-cv" download="" href="JensEinarBremnes_CV.pdf">Download CV (PDF) ↓</a>
+</div>
+<div class="header-stats">
+<div class="stat">
+<span class="stat-value" id="stat-citations">131</span>
+<span class="stat-label">Citations</span>
+</div>
+<div class="stat">
+<span class="stat-value" id="stat-hindex">7</span>
+<span class="stat-label">h-index</span>
+</div>
+<div class="stat">
+<span class="stat-value">8</span>
+<span class="stat-label">Journal Papers</span>
+</div>
+<div class="stat">
+<span class="stat-value">8</span>
+<span class="stat-label">Conference Papers</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 </header>
-
 <!-- RESEARCH INTERESTS -->
 <section class="section section-alt" id="research">
-  <div class="container">
-    <h2 class="section-title">Research Interests</h2>
-    <ul class="research-interests-list">
-      <li><strong>Autonomy for robotics</strong> — planning, decision-making, adaptive behaviors, mission execution and supervision</li>
-      <li><strong>Risk management in robotics</strong> — risk analysis, probabilistic AI (Bayesian methods, Gaussian processes), supervisory control, and formal safety guarantees</li>
-      <li><strong>Field robotics</strong> — Real-world implementation and deployments, including Arctic operations</li>
-      <li><strong>Multi-vehicle coordination</strong> — collaborative control and communication for multiple autonomous systems</li>
-      <li><strong>Ocean mapping and monitoring</strong> — sampling strategies for acoustic, optical and chemical sensing</li>
-      <li><strong>Sensor and data fusion</strong> — integration of data from multiple sensors and data sources for navigation and situational awareness</li>
-    </ul>
-  </div>
+<div class="container">
+<h2 class="section-title">Research Interests</h2>
+<ul class="research-interests-list">
+<li><strong>Autonomy for robotics</strong> — planning, decision-making, adaptive behaviors, mission execution and supervision</li>
+<li><strong>Risk management in robotics</strong> — risk analysis, probabilistic AI (Bayesian methods, Gaussian processes), supervisory control, and formal safety guarantees</li>
+<li><strong>Field robotics</strong> — Real-world implementation and deployments, including Arctic operations</li>
+<li><strong>Multi-vehicle coordination</strong> — collaborative control and communication for multiple autonomous systems</li>
+<li><strong>Ocean mapping and monitoring</strong> — sampling strategies for acoustic, optical and chemical sensing</li>
+<li><strong>Sensor and data fusion</strong> — integration of data from multiple sensors and data sources for navigation and situational awareness</li>
+</ul>
+</div>
 </section>
-
 <!-- EDUCATION -->
 <section class="section" id="education">
-  <div class="container">
-    <h2 class="section-title">Education</h2>
-    <div class="edu-list">
-
-      <div class="edu-item">
-        <span class="edu-degree">PhD, Marine Technology (Marine Cybernetics)</span>
-        <span class="edu-period">2019 – 2024</span>
-        <span class="edu-institution">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</span>
-        <div class="edu-details">
-          <p>Thesis: <em>Safe Autonomy in Marine Robotics</em></p>
-          <p>PhD candidate in the UNLOCK project at the Dept. of Marine Technology. Affiliated with the Centre for Autonomous Marine Operations and Systems (NTNU AMOS) and the Nansen Legacy project. Research focused on risk modelling, risk control and autonomous planning and decision-making for marine robotics operating in unstructured environments.</p>
-          <p>Exchange studies: Spring 2020 — Dept. of EECS, UC Berkeley, USA (reachability analysis, Gaussian processes, model predictive control); Fall 2019 — UNIS, Longyearbyen, Svalbard (doctoral course <em>AT-834 Arctic Marine Measurement Techniques, Operations and Transport</em>).</p>
-        </div>
-      </div>
-
-      <div class="edu-item">
-        <span class="edu-degree">MSc, Marine Technology (Marine Cybernetics)</span>
-        <span class="edu-period">2014 – 2019</span>
-        <span class="edu-institution">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</span>
-        <div class="edu-details">
-          <p>Thesis: <em>Towards Robust Autonomy of Underwater Vehicles in Arctic Operations</em></p>
-          <p>GPA: 4.3 (B+). Coursework in advanced control systems, robotics, risk analysis, artificial intelligence, hydrodynamics, and programming. Began an integrated PhD programme in the fifth year.</p>
-          <p>Exchange studies: Spring 2018 — Dept. of ECE, <em>Instituto Superior Técnico (IST)</em>, Lisbon (robotics, optimisation, control theory, offshore wind energy).</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Education</h2>
+<div class="edu-list">
+<div class="edu-item">
+<span class="edu-degree">PhD, Marine Technology (Marine Cybernetics)</span>
+<span class="edu-period">2019 – 2024</span>
+<span class="edu-institution">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</span>
+<div class="edu-details">
+<p>Thesis: <em>Safe Autonomy in Marine Robotics</em></p>
+<p>PhD candidate in the UNLOCK project at the Dept. of Marine Technology. Affiliated with the Centre for Autonomous Marine Operations and Systems (NTNU AMOS) and the Nansen Legacy project. Research focused on risk modelling, risk control and autonomous planning and decision-making for marine robotics operating in unstructured environments.</p>
+<p>Exchange studies: Spring 2020 — Dept. of EECS, UC Berkeley, USA (reachability analysis, Gaussian processes, model predictive control); Fall 2019 — UNIS, Longyearbyen, Svalbard (doctoral course <em>AT-834 Arctic Marine Measurement Techniques, Operations and Transport</em>).</p>
+</div>
+</div>
+<div class="edu-item">
+<span class="edu-degree">MSc, Marine Technology (Marine Cybernetics)</span>
+<span class="edu-period">2014 – 2019</span>
+<span class="edu-institution">Norwegian University of Science and Technology (NTNU), Trondheim, Norway</span>
+<div class="edu-details">
+<p>Thesis: <em>Towards Robust Autonomy of Underwater Vehicles in Arctic Operations</em></p>
+<p>GPA: 4.3 (B+). Coursework in advanced control systems, robotics, risk analysis, artificial intelligence, hydrodynamics, and programming. Began an integrated PhD programme in the fifth year.</p>
+<p>Exchange studies: Spring 2018 — Dept. of ECE, <em>Instituto Superior Técnico (IST)</em>, Lisbon (robotics, optimisation, control theory, offshore wind energy).</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- POSITIONS -->
 <section class="section section-alt" id="positions">
-  <div class="container">
-    <h2 class="section-title">Experience</h2>
-    <div class="pos-list">
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">Sept 2025 – present</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">Engineer</h3>
-          <span class="pos-org">GeoNord AS · Alta, Norway</span>
-          <p class="pos-prose">Seabed and terrain mapping: field data collection with multibeam echo sounders and laser scanners from vessel and drone; processing and analysis of point clouds, 3D models, orthophotos, contour maps, and volume calculations. Survey planning, data acquisition, and post-processing for marine, coastal and construction projects.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">May 2023 – Sept 2025</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">Scientist</h3>
-          <span class="pos-org">Norwegian Defence Research Establishment (FFI) · Kjeller, Norway</span>
-          <p class="pos-prose">Research and development on autonomy for HUGIN-class AUVs. Developed novel algorithms for autonomous mission planning and decision-making; software development in C++ (primary), Python, and MATLAB with integration on operational AUV systems and operator interfaces. Field campaigns aboard research vessel <em>H.U. Sverdrup II</em>. Scientific dissemination via journal articles, conference papers, and reports; contributed to research projects, proposals and master's student supervision.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">Aug 2019 – May 2023</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">PhD Fellow</h3>
-          <span class="pos-org">NTNU Department of Marine Technology · Trondheim, Norway</span>
-          <p class="pos-prose">Autonomy research in marine robotics with focus on risk management, AI, and control systems. Contributed to the Applied Underwater Robotics Laboratory (AUR-Lab): operation and maintenance of AUV, USV, and ROV fleets; scientific cruises in the North Sea, Svalbard, Lake Mjøsa, and Trøndelag fjords. Visiting Scholar at UC Berkeley (EECS, Spring 2020). Co-developed TMR06 Autonomous Marine Systems; scientific assistant for TMR4240 Marine Control Systems; co-supervised master's students.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">Aug 2014 – May 2019</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">Student Assistant &amp; Recruitment Assistant</h3>
-          <span class="pos-org">NTNU Department of Marine Technology · Trondheim, Norway</span>
-          <p class="pos-prose">Student assistant in TMR4240 Marine Control Systems (Autumn 2018) and TMR4160 Computer Methods for Marine Applications (Spring 2019). Recruited high school students to the Master's programme in Marine Technology.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">June – Aug 2018</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">Summer Intern</h3>
-          <span class="pos-org">DNV GL, Digital Assurance · Trondheim, Norway</span>
-          <p class="pos-prose">Software development in C++ and Python with ROS for the <em>ReVolt</em> autonomous ship testbed; vessel maintenance.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">June – Aug 2017</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">Summer Intern</h3>
-          <span class="pos-org">Equinor, New Energy Solutions · Stavanger, Norway</span>
-          <p class="pos-prose">Monopile design and parametric studies for large-scale (10+ MW) offshore wind turbines; structural analysis in ULS and FLS.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Experience</h2>
+<div class="pos-list">
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">Sept 2025 – present</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">Engineer</h3>
+<span class="pos-org">GeoNord AS · Alta, Norway</span>
+<p class="pos-prose">Seabed and terrain mapping: field data collection with multibeam echo sounders and laser scanners from vessel and drone; processing and analysis of point clouds, 3D models, orthophotos, contour maps, and volume calculations. Survey planning, data acquisition, and post-processing for marine, coastal and construction projects.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">May 2023 – Sept 2025</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">Scientist</h3>
+<span class="pos-org">Norwegian Defence Research Establishment (FFI) · Kjeller, Norway</span>
+<p class="pos-prose">Research and development on autonomy for HUGIN-class AUVs. Developed novel algorithms for autonomous mission planning and decision-making; software development in C++ (primary), Python, and MATLAB with integration on operational AUV systems and operator interfaces. Field campaigns aboard research vessel <em>H.U. Sverdrup II</em>. Scientific dissemination via journal articles, conference papers, and reports; contributed to research projects, proposals and master's student supervision.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">Aug 2019 – May 2023</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">PhD Fellow</h3>
+<span class="pos-org">NTNU Department of Marine Technology · Trondheim, Norway</span>
+<p class="pos-prose">Autonomy research in marine robotics with focus on risk management, AI, and control systems. Contributed to the Applied Underwater Robotics Laboratory (AUR-Lab): operation and maintenance of AUV, USV, and ROV fleets; scientific cruises in the North Sea, Svalbard, Lake Mjøsa, and Trøndelag fjords. Visiting Scholar at UC Berkeley (EECS, Spring 2020). Co-developed TMR06 Autonomous Marine Systems; scientific assistant for TMR4240 Marine Control Systems; co-supervised master's students.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">Aug 2014 – May 2019</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">Student Assistant &amp; Recruitment Assistant</h3>
+<span class="pos-org">NTNU Department of Marine Technology · Trondheim, Norway</span>
+<p class="pos-prose">Student assistant in TMR4240 Marine Control Systems (Autumn 2018) and TMR4160 Computer Methods for Marine Applications (Spring 2019). Recruited high school students to the Master's programme in Marine Technology.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">June – Aug 2018</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">Summer Intern</h3>
+<span class="pos-org">DNV GL, Digital Assurance · Trondheim, Norway</span>
+<p class="pos-prose">Software development in C++ and Python with ROS for the <em>ReVolt</em> autonomous ship testbed; vessel maintenance.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">June – Aug 2017</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">Summer Intern</h3>
+<span class="pos-org">Equinor, New Energy Solutions · Stavanger, Norway</span>
+<p class="pos-prose">Monopile design and parametric studies for large-scale (10+ MW) offshore wind turbines; structural analysis in ULS and FLS.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- RESEARCH PROJECTS -->
 <section class="section" id="research-projects">
-  <div class="container">
-    <h2 class="section-title">Research Projects</h2>
-    <div class="pos-list">
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">2023 – 2025</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">CsasPlanner</h3>
-          <span class="pos-org">Norwegian Defence Research Establishment (FFI) · Lead developer</span>
-          <p class="pos-prose">FFI project on decisional autonomy for circular synthetic aperture sonar (CSAS) surveying. Developed autonomous mission planning strategies for AUV-based CSAS operations. Software implementation and experimental validation on the HUGIN AUV.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">2023 – 2025</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">Intelligent ID</h3>
-          <span class="pos-org">Norwegian Defence Research Establishment (FFI) · Lead developer</span>
-          <p class="pos-prose">FFI project on autonomous optical object identification using AUVs. Developed replanning algorithms for robust optical inspection using in-situ sonar data. Software implementation and experimental validation on the HUGIN AUV.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">2023 – 2025</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">SmartAUVs</h3>
-          <span class="pos-org">Research Council of Norway / Plymouth Marine Laboratory · Collaborator (FFI)</span>
-          <p class="pos-prose">Smart AUVs for Detection and Quantification of Greenhouse Gas Seepage in the Oceans. Developed autonomy algorithms for adaptive sampling of CO<sub>2</sub> and methane seepage triggered by real-time detections. Software implementation and experimental validation on the HUGIN AUV.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">2021 – 2024</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">The Nansen Legacy</h3>
-          <span class="pos-org">Research Council of Norway / UiT – The Arctic University of Norway · Participant</span>
-          <p class="pos-prose">Affiliated with the Nansen Legacy project, a large research project on the Arctic marine ecosystems. Participated in the Q2 2021 seasonal cruise in the Arctic Ocean, contributing to ROV-based data collection, under-ice operations, and bio-optical measurements.</p>
-        </div>
-      </div>
-
-      <div class="pos-item">
-        <div class="pos-meta">
-          <span class="pos-period">2018 – 2024</span>
-        </div>
-        <div class="pos-body">
-          <h3 class="pos-role">UNLOCK</h3>
-          <span class="pos-org">Research Council of Norway, FRINATEK / NTNU · PhD Candidate</span>
-          <p class="pos-prose">PhD was funded by the UNLOCK project (Unlocking the Potential of Autonomous Systems and Operations through Supervisory Risk Control). The project involved online risk modelling, testing, and verification of safe autonomous systems, with case studies on AUVs for ocean mapping and UAVs for industrial inspection. My work focused on supervisory risk control and safe autonomy for marine robotics. Hosted at the Dept. of Marine Technology, NTNU; affiliated with SFF AMOS.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Research Projects</h2>
+<div class="pos-list">
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">2023 – 2025</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">CsasPlanner</h3>
+<span class="pos-org">Norwegian Defence Research Establishment (FFI) · Lead developer</span>
+<p class="pos-prose">FFI project on decisional autonomy for circular synthetic aperture sonar (CSAS) surveying. Developed autonomous mission planning strategies for AUV-based CSAS operations. Software implementation and experimental validation on the HUGIN AUV.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">2023 – 2025</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">Intelligent ID</h3>
+<span class="pos-org">Norwegian Defence Research Establishment (FFI) · Lead developer</span>
+<p class="pos-prose">FFI project on autonomous optical object identification using AUVs. Developed replanning algorithms for robust optical inspection using in-situ sonar data. Software implementation and experimental validation on the HUGIN AUV.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">2023 – 2025</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">SmartAUVs</h3>
+<span class="pos-org">Research Council of Norway / Plymouth Marine Laboratory · Collaborator (FFI)</span>
+<p class="pos-prose">Smart AUVs for Detection and Quantification of Greenhouse Gas Seepage in the Oceans. Developed autonomy algorithms for adaptive sampling of CO<sub>2</sub> and methane seepage triggered by real-time detections. Software implementation and experimental validation on the HUGIN AUV.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">2021 – 2024</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">The Nansen Legacy</h3>
+<span class="pos-org">Research Council of Norway / UiT – The Arctic University of Norway · Participant</span>
+<p class="pos-prose">Affiliated with the Nansen Legacy project, a large research project on the Arctic marine ecosystems. Participated in the Q2 2021 seasonal cruise in the Arctic Ocean, contributing to ROV-based data collection, under-ice operations, and bio-optical measurements.</p>
+</div>
+</div>
+<div class="pos-item">
+<div class="pos-meta">
+<span class="pos-period">2018 – 2024</span>
+</div>
+<div class="pos-body">
+<h3 class="pos-role">UNLOCK</h3>
+<span class="pos-org">Research Council of Norway, FRINATEK / NTNU · PhD Candidate</span>
+<p class="pos-prose">PhD was funded by the UNLOCK project (Unlocking the Potential of Autonomous Systems and Operations through Supervisory Risk Control). The project involved online risk modelling, testing, and verification of safe autonomous systems, with case studies on AUVs for ocean mapping and UAVs for industrial inspection. My work focused on supervisory risk control and safe autonomy for marine robotics. Hosted at the Dept. of Marine Technology, NTNU; affiliated with SFF AMOS.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- PUBLICATIONS -->
 <section class="section" id="publications">
-  <div class="container">
-    <h2 class="section-title">Publications</h2>
-    <div class="pub-sort-controls">
-      <button aria-pressed="true" class="pub-sort-btn" id="pub-sort-date">Sort by date</button>
-      <button aria-pressed="false" class="pub-sort-btn" id="pub-sort-citations">Sort by citations</button>
-    </div>
-
-    <h3 class="pub-type-header">Journal Articles</h3>
-    <ol class="pub-list" id="pub-list">
-      <li class="pub-entry" data-citations="0" data-year="2026">
-        <span class="pub-authors">Summers, <strong>Bremnes</strong> et al.</span>
-        <span class="pub-title">Assessing Arctic under sea-ice light regimes and ice algal bio-optical properties using ROV-based hyperspectral imaging.</span>
-        <span class="pub-venue">Polar Biology</span>, 2026.
+<div class="container">
+<h2 class="section-title">Publications</h2>
+<div class="pub-sort-controls">
+<button aria-pressed="true" class="pub-sort-btn" id="pub-sort-date">Sort by date</button>
+<button aria-pressed="false" class="pub-sort-btn" id="pub-sort-citations">Sort by citations</button>
+</div>
+<h3 class="pub-type-header">Journal Articles</h3>
+<ol class="pub-list" id="pub-list">
+<li class="pub-entry" data-citations="0" data-year="2026">
+<span class="pub-authors">Summers, <strong>Bremnes</strong> et al.</span>
+<span class="pub-title">Assessing Arctic under sea-ice light regimes and ice algal bio-optical properties using ROV-based hyperspectral imaging.</span>
+<span class="pub-venue">Polar Biology</span>, 2026.
       </li>
-      <li class="pub-entry" data-citations="2" data-year="2025">
-        <span class="pub-authors">Kristensen, Maidana, Utne, <strong>Bremnes</strong></span>
-        <span class="pub-title">Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles.</span>
-        <span class="pub-venue">Ocean Engineering</span>, 2025.
+<li class="pub-entry" data-citations="2" data-year="2025">
+<span class="pub-authors">Kristensen, Maidana, Utne, <strong>Bremnes</strong></span>
+<span class="pub-title">Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles.</span>
+<span class="pub-venue">Ocean Engineering</span>, 2025.
         <span class="pub-citations">2 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="6" data-year="2024">
-        <span class="pub-authors"><strong>Bremnes</strong>, Utne, Krogstad, Sørensen</span>
-        <span class="pub-title">Holistic risk modeling and path planning for marine robotics.</span>
-        <span class="pub-venue">IEEE Journal of Oceanic Engineering</span>, 2024.
+</li>
+<li class="pub-entry" data-citations="6" data-year="2024">
+<span class="pub-authors"><strong>Bremnes</strong>, Utne, Krogstad, Sørensen</span>
+<span class="pub-title">Holistic risk modeling and path planning for marine robotics.</span>
+<span class="pub-venue">IEEE Journal of Oceanic Engineering</span>, 2024.
         <span class="pub-citations">6 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="5" data-year="2024">
-        <span class="pub-authors"><strong>Bremnes</strong>, Fyrvik, Krogstad, Sørensen</span>
-        <span class="pub-title">Design of a Switching Controller for Tracking AUVs with an ASV.</span>
-        <span class="pub-venue">IEEE Transactions on Control Systems Technology</span>, 2024.
-        <span class="pub-citations">5 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="16" data-year="2023">
-        <span class="pub-authors">Vasilijevic, <strong>Bremnes</strong>, Ludvigsen</span>
-        <span class="pub-title">Remote operation of marine robotic systems and next-generation multi-purpose control rooms.</span>
-        <span class="pub-venue">Journal of Marine Science and Engineering</span>, 2023.
+</li>
+<li class="pub-entry" data-citations="5" data-year="2024">
+<span class="pub-authors"><strong>Bremnes</strong>, Fyrvik, Krogstad, Sørensen</span>
+<span class="pub-title">Design of a Switching Controller for Tracking AUVs with an ASV.</span>
+<span class="pub-venue">IEEE Transactions on Control Systems Technology</span>, 2024.
+        <span class="pub-citations">9 cited</span>
+</li>
+<li class="pub-entry" data-citations="16" data-year="2023">
+<span class="pub-authors">Vasilijevic, <strong>Bremnes</strong>, Ludvigsen</span>
+<span class="pub-title">Remote operation of marine robotic systems and next-generation multi-purpose control rooms.</span>
+<span class="pub-venue">Journal of Marine Science and Engineering</span>, 2023.
         <span class="pub-citations">16 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="20" data-year="2023">
-        <span class="pub-authors">Yang, <strong>Bremnes</strong>, Utne</span>
-        <span class="pub-title">Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice.</span>
-        <span class="pub-venue">Ocean Engineering</span>, 2023.
-        <span class="pub-citations">20 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="5" data-year="2020">
-        <span class="pub-authors"><strong>Bremnes</strong>, Brodtkorb, Sørensen</span>
-        <span class="pub-title">Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation.</span>
-        <span class="pub-venue">International Journal of Control, Automation and Systems</span>, 2020.
+</li>
+<li class="pub-entry" data-citations="20" data-year="2023">
+<span class="pub-authors">Yang, <strong>Bremnes</strong>, Utne</span>
+<span class="pub-title">Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice.</span>
+<span class="pub-venue">Ocean Engineering</span>, 2023.
+        <span class="pub-citations">21 cited</span>
+</li>
+<li class="pub-entry" data-citations="5" data-year="2020">
+<span class="pub-authors"><strong>Bremnes</strong>, Brodtkorb, Sørensen</span>
+<span class="pub-title">Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation.</span>
+<span class="pub-venue">International Journal of Control, Automation and Systems</span>, 2020.
         <span class="pub-citations">5 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="24" data-year="2020">
-        <span class="pub-authors"><strong>Bremnes</strong>, Thieme, Sørensen, Utne, Norgren</span>
-        <span class="pub-title">A Bayesian approach to supervisory risk control of AUVs applied to under-ice operations.</span>
-        <span class="pub-venue">Marine Technology Society Journal</span>, 2020.
+</li>
+<li class="pub-entry" data-citations="24" data-year="2020">
+<span class="pub-authors"><strong>Bremnes</strong>, Thieme, Sørensen, Utne, Norgren</span>
+<span class="pub-title">A Bayesian approach to supervisory risk control of AUVs applied to under-ice operations.</span>
+<span class="pub-venue">Marine Technology Society Journal</span>, 2020.
         <span class="pub-citations">24 cited</span>
-      </li>
-    </ol>
-
-    <h3 class="pub-type-header">Conference Papers</h3>
-    <ol class="pub-list" start="9">
-      <li class="pub-entry" data-citations="0" data-year="2025">
-        <span class="pub-authors"><strong>Bremnes</strong>, Krogstad</span>
-        <span class="pub-title">Planning in circles: Autonomous planning for circular synthetic aperture sonar surveying with AUVs.</span>
-        <span class="pub-venue">UDT</span>, 2025.
+</li>
+</ol>
+<h3 class="pub-type-header">Conference Papers</h3>
+<ol class="pub-list" start="9">
+<li class="pub-entry" data-citations="0" data-year="2025">
+<span class="pub-authors"><strong>Bremnes</strong>, Krogstad</span>
+<span class="pub-title">Planning in circles: Autonomous planning for circular synthetic aperture sonar surveying with AUVs.</span>
+<span class="pub-venue">UDT</span>, 2025.
         <span class="pub-award">★ Best Paper Award</span>
-      </li>
-      <li class="pub-entry" data-citations="1" data-year="2024">
-        <span class="pub-authors"><strong>Bremnes</strong>, Rørstad, Krogstad, Midtgaard</span>
-        <span class="pub-title">Adaptive AUV Planning For Robust Optical Object Inspection Using In-Situ Sonar Data.</span>
-        <span class="pub-venue">AUV Symposium</span>, 2024.
+</li>
+<li class="pub-entry" data-citations="1" data-year="2024">
+<span class="pub-authors"><strong>Bremnes</strong>, Rørstad, Krogstad, Midtgaard</span>
+<span class="pub-title">Adaptive AUV Planning For Robust Optical Object Inspection Using In-Situ Sonar Data.</span>
+<span class="pub-venue">AUV Symposium</span>, 2024.
         <span class="pub-citations">1 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="7" data-year="2023">
-        <span class="pub-authors">Vasilijevic, Gravråkmo, Barstein, <strong>Bremnes</strong></span>
-        <span class="pub-title">Infrastructure for remote experimentation in the Trondheim fjord.</span>
-        <span class="pub-venue">OCEANS</span>, 2023.
+</li>
+<li class="pub-entry" data-citations="7" data-year="2023">
+<span class="pub-authors">Vasilijevic, Gravråkmo, Barstein, <strong>Bremnes</strong></span>
+<span class="pub-title">Infrastructure for remote experimentation in the Trondheim fjord.</span>
+<span class="pub-venue">OCEANS</span>, 2023.
         <span class="pub-citations">7 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="6" data-year="2022">
-        <span class="pub-authors">Yang, <strong>Bremnes</strong>, Utne</span>
-        <span class="pub-title">A system-theoretic approach to hazard identification of operation with multiple autonomous marine systems (AMS).</span>
-        <span class="pub-venue">ESREL</span>, 2022.
+</li>
+<li class="pub-entry" data-citations="6" data-year="2022">
+<span class="pub-authors">Yang, <strong>Bremnes</strong>, Utne</span>
+<span class="pub-title">A system-theoretic approach to hazard identification of operation with multiple autonomous marine systems (AMS).</span>
+<span class="pub-venue">ESREL</span>, 2022.
         <span class="pub-citations">6 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="6" data-year="2022">
-        <span class="pub-authors">Fyrvik, <strong>Bremnes</strong>, Sørensen</span>
-        <span class="pub-title">Hybrid tracking controller for an ASV providing mission support for an AUV.</span>
-        <span class="pub-venue">CAMS</span>, 2022.
-        <span class="pub-citations">6 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="2" data-year="2020">
-        <span class="pub-authors"><strong>Bremnes</strong> et al.</span>
-        <span class="pub-title">Optimization-based planning and control of AUVs applied to adaptive sampling under ice.</span>
-        <span class="pub-venue">AUV Symposium</span>, 2020.
+</li>
+<li class="pub-entry" data-citations="6" data-year="2022">
+<span class="pub-authors">Fyrvik, <strong>Bremnes</strong>, Sørensen</span>
+<span class="pub-title">Hybrid tracking controller for an ASV providing mission support for an AUV.</span>
+<span class="pub-venue">CAMS</span>, 2022.
+        <span class="pub-citations">7 cited</span>
+</li>
+<li class="pub-entry" data-citations="2" data-year="2020">
+<span class="pub-authors"><strong>Bremnes</strong> et al.</span>
+<span class="pub-title">Optimization-based planning and control of AUVs applied to adaptive sampling under ice.</span>
+<span class="pub-venue">AUV Symposium</span>, 2020.
         <span class="pub-citations">2 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="20" data-year="2019">
-        <span class="pub-authors"><strong>Bremnes</strong> et al.</span>
-        <span class="pub-title">Intelligent risk-based under-ice altitude control for autonomous underwater vehicles.</span>
-        <span class="pub-venue">OCEANS</span>, 2019.
+</li>
+<li class="pub-entry" data-citations="20" data-year="2019">
+<span class="pub-authors"><strong>Bremnes</strong> et al.</span>
+<span class="pub-title">Intelligent risk-based under-ice altitude control for autonomous underwater vehicles.</span>
+<span class="pub-venue">OCEANS</span>, 2019.
         <span class="pub-citations">20 cited</span>
-      </li>
-      <li class="pub-entry" data-citations="3" data-year="2019">
-        <span class="pub-authors"><strong>Bremnes</strong>, Brodtkorb, Sørensen</span>
-        <span class="pub-title">Sensor-based hybrid translational observer for underwater navigation.</span>
-        <span class="pub-venue">CAMS</span>, 2019.
+</li>
+<li class="pub-entry" data-citations="3" data-year="2019">
+<span class="pub-authors"><strong>Bremnes</strong>, Brodtkorb, Sørensen</span>
+<span class="pub-title">Sensor-based hybrid translational observer for underwater navigation.</span>
+<span class="pub-venue">CAMS</span>, 2019.
         <span class="pub-citations">3 cited</span>
+</li>
+</ol>
+<h3 class="pub-type-header">Reports</h3>
+<ol class="pub-list" start="17">
+<li class="pub-entry" data-citations="0" data-year="2025">
+<span class="pub-authors"><strong>Bremnes</strong>, Krogstad</span>
+<span class="pub-title">CsasPlanner: Decisional autonomy for circular synthetic aperture sonar surveying with AUVs.</span>
+<span class="pub-venue">FFI report, exempt from public access</span>, 2025.
       </li>
-    </ol>
-
-    <h3 class="pub-type-header">Reports</h3>
-    <ol class="pub-list" start="17">
-      <li class="pub-entry" data-citations="0" data-year="2025">
-        <span class="pub-authors"><strong>Bremnes</strong>, Krogstad</span>
-        <span class="pub-title">CsasPlanner: Decisional autonomy for circular synthetic aperture sonar surveying with AUVs.</span>
-        <span class="pub-venue">FFI report, exempt from public access</span>, 2025.
+<li class="pub-entry" data-citations="0" data-year="2025">
+<span class="pub-authors"><strong>Bremnes</strong> et al.</span>
+<span class="pub-title">Intelligent ID: Replanning for robust optical identification with HUGIN using EM2040.</span>
+<span class="pub-venue">FFI report, exempt from public access</span>, 2025.
       </li>
-      <li class="pub-entry" data-citations="0" data-year="2025">
-        <span class="pub-authors"><strong>Bremnes</strong> et al.</span>
-        <span class="pub-title">Intelligent ID: Replanning for robust optical identification with HUGIN using EM2040.</span>
-        <span class="pub-venue">FFI report, exempt from public access</span>, 2025.
-      </li>
-      <li class="pub-entry" data-citations="2" data-year="2022">
-        <span class="pub-authors">Ludvigsen, Assmy, Adams, <strong>Bremnes</strong> et al.</span>
-        <span class="pub-title">Seasonal cruise Q2 2021: Cruise report.</span>
-        <span class="pub-venue">The Nansen Legacy Report Series</span>, 2022.
+<li class="pub-entry" data-citations="2" data-year="2022">
+<span class="pub-authors">Ludvigsen, Assmy, Adams, <strong>Bremnes</strong> et al.</span>
+<span class="pub-title">Seasonal cruise Q2 2021: Cruise report.</span>
+<span class="pub-venue">The Nansen Legacy Report Series</span>, 2022.
         <span class="pub-citations">2 cited</span>
+</li>
+<li class="pub-entry" data-citations="0" data-year="2019">
+<span class="pub-authors">Metlay, St. Clair, Twomey, <strong>Bremnes</strong>, Rødseth, Massaiu</span>
+<span class="pub-title">Autonomous transportation technologies: Society and individuals in the loop. Report of the discussions of breakout session.</span>
+<span class="pub-venue">Proceedings of the First International Workshop on Autonomous Systems Safety</span>, 2019.
       </li>
-      <li class="pub-entry" data-citations="0" data-year="2019">
-        <span class="pub-authors">Metlay, St. Clair, Twomey, <strong>Bremnes</strong>, Rødseth, Massaiu</span>
-        <span class="pub-title">Autonomous transportation technologies: Society and individuals in the loop. Report of the discussions of breakout session.</span>
-        <span class="pub-venue">Proceedings of the First International Workshop on Autonomous Systems Safety</span>, 2019.
+</ol>
+<h3 class="pub-type-header">Theses</h3>
+<ol class="pub-list" start="21">
+<li class="pub-entry" data-citations="0" data-year="2024">
+<span class="pub-authors">Bremnes</span>
+<span class="pub-title">Safe Autonomy in Marine Robotics.</span>
+<span class="pub-venue">PhD thesis, Dept. of Marine Technology, NTNU</span>, 2024.
       </li>
-    </ol>
-
-    <h3 class="pub-type-header">Theses</h3>
-    <ol class="pub-list" start="21">
-      <li class="pub-entry" data-citations="0" data-year="2024">
-        <span class="pub-authors">Bremnes</span>
-        <span class="pub-title">Safe Autonomy in Marine Robotics.</span>
-        <span class="pub-venue">PhD thesis, Dept. of Marine Technology, NTNU</span>, 2024.
+<li class="pub-entry" data-citations="0" data-year="2019">
+<span class="pub-authors">Bremnes</span>
+<span class="pub-title">Towards Robust Autonomy of Underwater Vehicles in Arctic Operations.</span>
+<span class="pub-venue">MSc thesis, Dept. of Marine Technology, NTNU</span>, 2019.
       </li>
-      <li class="pub-entry" data-citations="0" data-year="2019">
-        <span class="pub-authors">Bremnes</span>
-        <span class="pub-title">Towards Robust Autonomy of Underwater Vehicles in Arctic Operations.</span>
-        <span class="pub-venue">MSc thesis, Dept. of Marine Technology, NTNU</span>, 2019.
-      </li>
-    </ol>
-
-  </div>
+</ol>
+</div>
 </section>
-
 <!-- TEACHING -->
 <section class="section section-alt" id="teaching">
-  <div class="container">
-    <h2 class="section-title">Teaching</h2>
-
-    <table class="teaching-table">
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Course</th>
-          <th>Role</th>
-          <th>Year(s)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="course-code">TMR06</td>
-          <td class="course-name">Autonomous Marine Systems</td>
-          <td class="course-role">Course co-developer; contributed to syllabus design, lecture notes, and project specification; lecturing, and grading</td>
-          <td class="course-year">2020</td>
-        </tr>
-        <tr>
-          <td class="course-code">TMR4240</td>
-          <td class="course-name">Marine Control Systems</td>
-          <td class="course-role">Student assistant (2018), scientific assistant (2019-2020); exercise supervision, grading, and student guidance</td>
-          <td class="course-year">2018–2020</td>
-        </tr>
-        <tr>
-          <td class="course-code">TMR4160</td>
-          <td class="course-name">Computer Methods for Marine Applications</td>
-          <td class="course-role">Student assistant</td>
-          <td class="course-year">2019</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3 class="subsection-title" id="student-supervision">Master's Student Supervision</h3>
-    <ul class="supervision-list">
-      <li>
-        <strong>Thomas Erling Lone</strong> (co-supervisor) · MSc, NTNU Department of Marine Technology, 2020
-        <br><em>Navigation Techniques for Underwater Vehicles in Polar Regions</em>
+<div class="container">
+<h2 class="section-title">Teaching</h2>
+<table class="teaching-table">
+<thead>
+<tr>
+<th>Code</th>
+<th>Course</th>
+<th>Role</th>
+<th>Year(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="course-code">TMR06</td>
+<td class="course-name">Autonomous Marine Systems</td>
+<td class="course-role">Course co-developer; contributed to syllabus design, lecture notes, and project specification; lecturing, and grading</td>
+<td class="course-year">2020</td>
+</tr>
+<tr>
+<td class="course-code">TMR4240</td>
+<td class="course-name">Marine Control Systems</td>
+<td class="course-role">Student assistant (2018), scientific assistant (2019-2020); exercise supervision, grading, and student guidance</td>
+<td class="course-year">2018–2020</td>
+</tr>
+<tr>
+<td class="course-code">TMR4160</td>
+<td class="course-name">Computer Methods for Marine Applications</td>
+<td class="course-role">Student assistant</td>
+<td class="course-year">2019</td>
+</tr>
+</tbody>
+</table>
+<h3 class="subsection-title" id="student-supervision">Master's Student Supervision</h3>
+<ul class="supervision-list">
+<li>
+<strong>Thomas Erling Lone</strong> (co-supervisor) · MSc, NTNU Department of Marine Technology, 2020
+        <br/><em>Navigation Techniques for Underwater Vehicles in Polar Regions</em>
+</li>
+<li>
+<strong>Torbjørn Reitan Fyrvik</strong> (co-supervisor) · MSc, NTNU Department of Marine Technology, 2022
+        <br/><em>Methods for Ocean Mapping with Combined ASV and AUV Platforms</em>
+</li>
+<li>
+<strong>Hans Petter Vatne</strong> (co-supervisor) · MSc, NTNU Department of Engineering Cybernetics, 2025
+        <br/><em>Motion Planning for the Hugin 1000 AUV</em>
+</li>
+</ul>
+<h3 class="subsection-title">Other</h3>
+<ul class="supervision-list">
+<li>
+<strong>Substitute teacher</strong>, mathematics and natural science, grades 8–10 · Sandfallet Secondary School, Alta (Jan 2016, 2017, 2018)
       </li>
-      <li>
-        <strong>Torbjørn Reitan Fyrvik</strong> (co-supervisor) · MSc, NTNU Department of Marine Technology, 2022
-        <br><em>Methods for Ocean Mapping with Combined ASV and AUV Platforms</em>
+<li>
+<strong>Science mentor</strong>, ENT3R, Trondheim (2015–2017) — weekly tutoring of homework and hands-on science experiments for secondary school students
       </li>
-      <li>
-        <strong>Hans Petter Vatne</strong> (co-supervisor) · MSc, NTNU Department of Engineering Cybernetics, 2025
-        <br><em>Motion Planning for the Hugin 1000 AUV</em>
-      </li>
-    </ul>
-
-    <h3 class="subsection-title">Other</h3>
-    <ul class="supervision-list">
-      <li>
-        <strong>Substitute teacher</strong>, mathematics and natural science, grades 8–10 · Sandfallet Secondary School, Alta (Jan 2016, 2017, 2018)
-      </li>
-      <li>
-        <strong>Science mentor</strong>, ENT3R, Trondheim (2015–2017) — weekly tutoring of homework and hands-on science experiments for secondary school students
-      </li>
-    </ul>
-
-  </div>
+</ul>
+</div>
 </section>
-
 <!-- AWARDS & RECOGNITION -->
 <section class="section" id="awards">
-  <div class="container">
-    <h2 class="section-title">Awards &amp; Media outreach</h2>
-
-    <div class="awards-list">
-      <div class="award-item">
-        <span class="award-year">2025</span>
-        <div class="award-body">
-          <strong>Best Paper Award</strong>, Underwater Defence Technology (UDT) 2025, Oslo
+<div class="container">
+<h2 class="section-title">Awards &amp; Media outreach</h2>
+<div class="awards-list">
+<div class="award-item">
+<span class="award-year">2025</span>
+<div class="award-body">
+<strong>Best Paper Award</strong>, Underwater Defence Technology (UDT) 2025, Oslo
           <p class="award-detail">
-            <em>Planning in circles: Autonomous planning for circular synthetic aperture sonar surveying with AUVs</em>
+<em>Planning in circles: Autonomous planning for circular synthetic aperture sonar surveying with AUVs</em>
             (<a href="https://jensbremnes.github.io/cv/assets/images/best_paper_award_certificate.png" rel="noopener" target="_blank">certificate</a>)
           </p>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="subsection-title">Media</h3>
-    <div class="media-list">
-      <div class="media-item">
-        <span class="media-source">forskning.no · Nov 2024</span>
-        <a class="media-title" href="https://www.forskning.no/forsvarets-forskningsinstitutt-havet-partner/han-vil-laere-undervannsroboter-a-frykte-doden/2422718" rel="noopener" target="_blank">Han vil lære undervannsroboter å frykte døden</a>
-      </div>
-      <div class="media-item">
-        <span class="media-source">gemini.no · Jun 2022</span>
-        <a class="media-title" href="https://gemini.no/2022/06/forskere-undersokte-alt-overalt-pa-samme-tid/" rel="noopener" target="_blank">Forskere undersøkte alt, overalt, på samme tid</a>
-      </div>
-      <div class="media-item">
-        <span class="media-source">sciencenorway.no · May 2021</span>
-        <a class="media-title" href="https://www.sciencenorway.no/blog-nansen-legacy-project-blog-researchers-zone/mixing-production-deep-into-the-ocean/1855474" rel="noopener" target="_blank">Mixing production deep into the ocean</a>
-      </div>
-    </div>
-
-  </div>
+</div>
+</div>
+</div>
+<h3 class="subsection-title">Media</h3>
+<div class="media-list">
+<div class="media-item">
+<span class="media-source">forskning.no · Nov 2024</span>
+<a class="media-title" href="https://www.forskning.no/forsvarets-forskningsinstitutt-havet-partner/han-vil-laere-undervannsroboter-a-frykte-doden/2422718" rel="noopener" target="_blank">Han vil lære undervannsroboter å frykte døden</a>
+</div>
+<div class="media-item">
+<span class="media-source">gemini.no · Jun 2022</span>
+<a class="media-title" href="https://gemini.no/2022/06/forskere-undersokte-alt-overalt-pa-samme-tid/" rel="noopener" target="_blank">Forskere undersøkte alt, overalt, på samme tid</a>
+</div>
+<div class="media-item">
+<span class="media-source">sciencenorway.no · May 2021</span>
+<a class="media-title" href="https://www.sciencenorway.no/blog-nansen-legacy-project-blog-researchers-zone/mixing-production-deep-into-the-ocean/1855474" rel="noopener" target="_blank">Mixing production deep into the ocean</a>
+</div>
+</div>
+</div>
 </section>
-
 <!-- SOFTWARE PROJECTS -->
 <section class="section section-alt" id="projects">
-  <div class="container">
-    <h2 class="section-title">Software Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-lang">Python</span>
-          <a class="project-link" href="https://github.com/jensbremnes/geobn" rel="noopener" target="_blank">github.com/jensbremnes/geobn ↗</a>
-        </div>
-        <h4 class="project-name">geobn</h4>
-        <p class="project-desc">Python library for Bayesian network inference over geospatial data. Combines heterogeneous data sources (GeoTIFF, WCS, in-memory arrays) to generate insight over geographical areas.</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Software Projects</h2>
+<div class="project-grid">
+<div class="project-card">
+<div class="project-header">
+<span class="project-lang">Python</span>
+<a class="project-link" href="https://github.com/jensbremnes/geobn" rel="noopener" target="_blank">github.com/jensbremnes/geobn ↗</a>
+</div>
+<h4 class="project-name">geobn</h4>
+<p class="project-desc">Python library for Bayesian network inference over geospatial data. Combines heterogeneous data sources (GeoTIFF, WCS, in-memory arrays) to generate insight over geographical areas.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- TECHNICAL SKILLS -->
 <section class="section" id="skills">
-  <div class="container">
-    <h2 class="section-title">Technical Skills</h2>
-    <table class="teaching-table skills-table">
-      <tbody>
-        <tr>
-          <td class="skills-label"><strong>Programming</strong></td>
-          <td>C++, Python, MATLAB / Simulink</td>
-        </tr>
-        <tr>
-          <td class="skills-label"><strong>Frameworks &amp; tools</strong></td>
-          <td>ROS (Robot Operating System), Git, Docker, Linux, GIS</td>
-        </tr>
-        <tr>
-          <td class="skills-label"><strong>Methods</strong></td>
-          <td>Control theory, sensor fusion, Gaussian processes, Bayesian inference, risk analysis, autonomous planning, data visualisation</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="container">
+<h2 class="section-title">Technical Skills</h2>
+<table class="teaching-table skills-table">
+<tbody>
+<tr>
+<td class="skills-label"><strong>Programming</strong></td>
+<td>C++, Python, MATLAB / Simulink</td>
+</tr>
+<tr>
+<td class="skills-label"><strong>Frameworks &amp; tools</strong></td>
+<td>ROS (Robot Operating System), Git, Docker, Linux, GIS</td>
+</tr>
+<tr>
+<td class="skills-label"><strong>Methods</strong></td>
+<td>Control theory, sensor fusion, Gaussian processes, Bayesian inference, risk analysis, autonomous planning, data visualisation</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
-
 <!-- CONTACT -->
 <section class="section" id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="contact-intro">Feel free to reach out.</p>
-    <div class="contact-grid">
-      <a class="contact-item" href="mailto:jensbremnes@gmail.com">
-        <span class="contact-label">Email</span>
-        <span class="contact-value">jensbremnes@gmail.com</span>
-      </a>
-      <a class="contact-item" href="tel:+4741851428">
-        <span class="contact-label">Phone</span>
-        <span class="contact-value">+47 418 51 428</span>
-      </a>
-      <a class="contact-item" href="https://scholar.google.com/citations?user=iGO-GD4AAAAJ&amp;hl=en" rel="noopener" target="_blank">
-        <span class="contact-label">Google Scholar</span>
-        <span class="contact-value">View profile</span>
-      </a>
-      <a class="contact-item" href="https://orcid.org/0000-0002-5917-5281" rel="noopener" target="_blank">
-        <span class="contact-label">ORCID</span>
-        <span class="contact-value">0000-0002-5917-5281</span>
-      </a>
-      <a class="contact-item" href="https://github.com/jensbremnes" rel="noopener" target="_blank">
-        <span class="contact-label">GitHub</span>
-        <span class="contact-value">jensbremnes</span>
-      </a>
-      <a class="contact-item" href="https://www.linkedin.com/in/jensbremnes/" rel="noopener" target="_blank">
-        <span class="contact-label">LinkedIn</span>
-        <span class="contact-value">jensbremnes</span>
-      </a>
-      <a class="contact-item" href="https://www.researchgate.net/profile/Jens-Bremnes-2" rel="noopener" target="_blank">
-        <span class="contact-label">ResearchGate</span>
-        <span class="contact-value">View profile</span>
-      </a>
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Contact</h2>
+<p class="contact-intro">Feel free to reach out.</p>
+<div class="contact-grid">
+<a class="contact-item" href="mailto:jensbremnes@gmail.com">
+<span class="contact-label">Email</span>
+<span class="contact-value">jensbremnes@gmail.com</span>
+</a>
+<a class="contact-item" href="tel:+4741851428">
+<span class="contact-label">Phone</span>
+<span class="contact-value">+47 418 51 428</span>
+</a>
+<a class="contact-item" href="https://scholar.google.com/citations?user=iGO-GD4AAAAJ&amp;hl=en" rel="noopener" target="_blank">
+<span class="contact-label">Google Scholar</span>
+<span class="contact-value">View profile</span>
+</a>
+<a class="contact-item" href="https://orcid.org/0000-0002-5917-5281" rel="noopener" target="_blank">
+<span class="contact-label">ORCID</span>
+<span class="contact-value">0000-0002-5917-5281</span>
+</a>
+<a class="contact-item" href="https://github.com/jensbremnes" rel="noopener" target="_blank">
+<span class="contact-label">GitHub</span>
+<span class="contact-value">jensbremnes</span>
+</a>
+<a class="contact-item" href="https://www.linkedin.com/in/jensbremnes/" rel="noopener" target="_blank">
+<span class="contact-label">LinkedIn</span>
+<span class="contact-value">jensbremnes</span>
+</a>
+<a class="contact-item" href="https://www.researchgate.net/profile/Jens-Bremnes-2" rel="noopener" target="_blank">
+<span class="contact-label">ResearchGate</span>
+<span class="contact-value">View profile</span>
+</a>
+</div>
+</div>
 </section>
-
 <footer>
-  <div class="container">
-    <p>Jens Einar Bremnes, PhD &middot; Marine Cybernetics, NTNU &middot; jensbremnes@gmail.com</p>
-  </div>
+<div class="container">
+<p>Jens Einar Bremnes, PhD · Marine Cybernetics, NTNU · jensbremnes@gmail.com</p>
+</div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>
