@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-05-18T09:44:41",
-  "total_citations": 132,
+  "fetched_at": "2026-06-01T11:14:00",
+  "total_citations": 133,
   "h_index": 7,
   "papers": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "scholar_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice",
-      "citations": 21,
+      "citations": 22,
       "matched_html_title": "Holistic risk modeling and path planning for marine robotics"
     },
     {
