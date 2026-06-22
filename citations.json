@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-06-01T11:14:00",
-  "total_citations": 133,
+  "fetched_at": "2026-06-22T11:38:54",
+  "total_citations": 136,
   "h_index": 7,
   "papers": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "scholar_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms",
-      "citations": 16,
+      "citations": 17,
       "matched_html_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms"
     },
     {
@@ -30,7 +30,7 @@
     },
     {
       "scholar_title": "Infrastructure for remote experimentation in the Trondheim fjord",
-      "citations": 7,
+      "citations": 8,
       "matched_html_title": "Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation"
     },
     {
@@ -74,7 +74,7 @@
       "matched_html_title": "Sensor-based hybrid translational observer for underwater navigation"
     },
     {
-      "scholar_title": "Adaptive AUV Planning For Robust Optical Object Inspection Using In-Situ Sonar Data",
+      "scholar_title": "Assessing Arctic under sea-ice light regimes and ice algal bio-optical properties using ROV-based hyperspectral imaging",
       "citations": 1,
       "matched_html_title": "Seasonal cruise Q2 2021: Cruise report"
     }
