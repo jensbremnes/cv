@@ -1,135 +1,11 @@
 'use strict';
 
 /* =============================================
-   NAV SCROLL BEHAVIOR
-   ============================================= */
-(function initNav() {
-  const nav = document.getElementById('nav');
-  if (!nav) return;
-
-  function onScroll() {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
-
-
-/* =============================================
-   ACTIVE NAV LINK (IntersectionObserver)
-   ============================================= */
-(function initActiveNav() {
-  const sections = document.querySelectorAll('section[id], header[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  if (!sections.length || !navLinks.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  sections.forEach((s) => observer.observe(s));
-})();
-
-
-/* =============================================
-   MOBILE NAV SCROLL HINT
-   ============================================= */
-(function initNavScrollHint() {
-  const navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
-
-  function update() {
-    const hasOverflow = navLinks.scrollWidth > navLinks.clientWidth;
-    const atEnd = navLinks.scrollLeft + navLinks.clientWidth >= navLinks.scrollWidth - 2;
-    navLinks.classList.toggle('nav-overflow-right', hasOverflow && !atEnd);
-  }
-
-  navLinks.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-  update();
-})();
-
-
-/* =============================================
-   SCROLL-IN ANIMATIONS
-   ============================================= */
-(function initScrollAnimations() {
-  const els = document.querySelectorAll('.section, .edu-item, .pos-item');
-  if (!els.length) return;
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    els.forEach((el) => el.classList.add('visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.05 }
-  );
-
-  els.forEach((s) => observer.observe(s));
-})();
-
-
-/* =============================================
-   PUBLICATION SORT TOGGLE
-   ============================================= */
-(function initPubSort() {
-  const btnDate      = document.getElementById('pub-sort-date');
-  const btnCitations = document.getElementById('pub-sort-citations');
-  if (!btnDate || !btnCitations) return;
-
-  const lists = document.querySelectorAll('.pub-list');
-  const originals = Array.from(lists).map(list =>
-    Array.from(list.querySelectorAll('li.pub-entry'))
-  );
-
-  function applySort(byCitations) {
-    btnDate.setAttribute('aria-pressed', !byCitations);
-    btnCitations.setAttribute('aria-pressed', byCitations);
-
-    lists.forEach((list, i) => {
-      const items = byCitations
-        ? [...originals[i]].sort((a, b) =>
-            parseInt(b.dataset.citations, 10) - parseInt(a.dataset.citations, 10))
-        : [...originals[i]];
-      items.forEach(li => list.appendChild(li));
-    });
-  }
-
-  btnDate.addEventListener('click',      () => applySort(false));
-  btnCitations.addEventListener('click', () => applySort(true));
-})();
-
-
-/* =============================================
    THEME TOGGLE
    ============================================= */
 (function initThemeToggle() {
   const STORAGE_KEY = 'cv-theme';
   const root = document.documentElement;
-
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === 'dark') root.setAttribute('data-theme', 'dark');
 
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
@@ -144,4 +20,83 @@
       localStorage.setItem(STORAGE_KEY, 'dark');
     }
   });
+})();
+
+
+/* =============================================
+   ACTIVE NAV LINK (IntersectionObserver)
+   ============================================= */
+(function initActiveNav() {
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.side-nav a');
+  if (!sections.length || !navLinks.length) return;
+
+  function setActive(id) {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
+  }
+
+  const visible = new Map();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        visible.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+      });
+      let bestId = null;
+      let bestRatio = 0;
+      visible.forEach((ratio, id) => {
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestId = id;
+        }
+      });
+      if (bestId) setActive(bestId);
+    },
+    { threshold: [0.1, 0.3, 0.6], rootMargin: '-10% 0px -20% 0px' }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+})();
+
+
+/* =============================================
+   PUBLICATION SORT TOGGLE
+   ============================================= */
+(function initPubSort() {
+  const btnDate = document.getElementById('pub-sort-date');
+  const btnCitations = document.getElementById('pub-sort-citations');
+  if (!btnDate || !btnCitations) return;
+
+  const lists = document.querySelectorAll('.pub-list');
+  const originals = Array.from(lists).map((list) =>
+    Array.from(list.querySelectorAll('li.pub-entry'))
+  );
+
+  // Prefer the live badge text (kept current by the weekly citation
+  // update workflow) over the static data-citations attribute.
+  function citationCount(li) {
+    const badge = li.querySelector('.pub-citations');
+    if (badge) {
+      const n = parseInt(badge.textContent, 10);
+      if (!Number.isNaN(n)) return n;
+    }
+    return parseInt(li.dataset.citations, 10) || 0;
+  }
+
+  function applySort(byCitations) {
+    btnDate.setAttribute('aria-pressed', String(!byCitations));
+    btnCitations.setAttribute('aria-pressed', String(byCitations));
+
+    lists.forEach((list, i) => {
+      const items = byCitations
+        ? [...originals[i]].sort((a, b) => citationCount(b) - citationCount(a))
+        : [...originals[i]];
+      items.forEach((li) => list.appendChild(li));
+    });
+  }
+
+  btnDate.addEventListener('click', () => applySort(false));
+  btnCitations.addEventListener('click', () => applySort(true));
 })();

@@ -8,9 +8,9 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('nav links', async ({ page }) => {
-  const hrefs = ['#about', '#research', '#contact'];
+  const hrefs = ['#research', '#education', '#publications', '#contact'];
   for (const href of hrefs) {
-    const link = page.locator(`nav a[href="${href}"]`);
+    const link = page.locator(`.side-nav a[href="${href}"]`);
     await expect(link).toHaveCount(1);
   }
 });
@@ -26,7 +26,7 @@ test('contact section', async ({ page }) => {
 });
 
 test('profile photo', async ({ page }) => {
-  const img = page.locator('img[src*="jens-hero.jpg"]');
+  const img = page.locator('img[src*="jens_einar_bremnes_photo.jpg"]');
   await expect(img).toHaveCount(1);
   await expect(img).toBeVisible();
 });
@@ -56,6 +56,35 @@ test('publications count', async ({ page }) => {
 });
 
 test('google scholar link', async ({ page }) => {
-  const link = page.locator('a[href*="scholar.google.com"]');
-  await expect(link).toHaveCount(1);
+  const links = page.locator('a[href*="scholar.google.com"]');
+  const count = await links.count();
+  expect(count).toBeGreaterThanOrEqual(1);
+});
+
+test('citation stats hooks for update workflow', async ({ page }) => {
+  await expect(page.locator('#stat-citations')).toHaveText(/^\d+$/);
+  await expect(page.locator('#stat-hindex')).toHaveText(/^\d+$/);
+});
+
+test('theme toggle switches and persists', async ({ page }) => {
+  const html = page.locator('html');
+  await expect(html).not.toHaveAttribute('data-theme', 'dark');
+
+  await page.locator('#theme-toggle').click();
+  await expect(html).toHaveAttribute('data-theme', 'dark');
+
+  await page.reload();
+  await expect(html).toHaveAttribute('data-theme', 'dark');
+
+  await page.locator('#theme-toggle').click();
+  await expect(html).not.toHaveAttribute('data-theme', 'dark');
+});
+
+test('publication sort by citations reorders entries', async ({ page }) => {
+  await page.locator('#pub-sort-citations').click();
+  const firstJournal = page.locator('#pub-list .pub-entry').first();
+  await expect(firstJournal.locator('.pub-title')).toContainText(
+    'A Bayesian approach to supervisory risk control'
+  );
+  await expect(page.locator('#pub-sort-citations')).toHaveAttribute('aria-pressed', 'true');
 });
