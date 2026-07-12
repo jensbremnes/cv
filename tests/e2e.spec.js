@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 test('nav links', async ({ page }) => {
   const hrefs = ['#research', '#education', '#publications', '#contact'];
   for (const href of hrefs) {
-    const link = page.locator(`.side-nav a[href="${href}"]`);
+    const link = page.locator(`#nav a[href="${href}"]`);
     await expect(link).toHaveCount(1);
   }
 });

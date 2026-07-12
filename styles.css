@@ -2,6 +2,7 @@
    Jens Einar Bremnes — Academic CV
    Minimalist design system: serif headings, sans body,
    restrained sea-teal accent, light & dark themes.
+   Single-column layout with slim sticky top nav.
    ===================================================== */
 
 /* ---------- Tokens ---------- */
@@ -19,9 +20,9 @@
   --accent-soft: rgba(29, 106, 117, 0.10);
   --rule: #e6e3dd;
   --rule-strong: #d5d1c9;
+  --nav-bg: rgba(251, 250, 248, 0.85);
 
-  --content-max: 44rem;
-  --sidebar-w: 19.5rem;
+  --col-max: 46rem;
 }
 
 :root[data-theme='dark'] {
@@ -34,6 +35,7 @@
   --accent-soft: rgba(116, 191, 202, 0.12);
   --rule: #2d3132;
   --rule-strong: #3c4143;
+  --nav-bg: rgba(25, 27, 28, 0.85);
 }
 
 /* ---------- Reset & base ---------- */
@@ -97,38 +99,66 @@ strong {
   font-weight: 600;
 }
 
-/* ---------- Layout ---------- */
+/* ---------- Top nav ---------- */
 
-.layout {
-  display: grid;
-  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
-  max-width: 72rem;
-  margin: 0 auto;
-}
-
-/* ---------- Sidebar ---------- */
-
-.sidebar {
-  border-right: 1px solid var(--rule);
-}
-
-.sidebar-inner {
+.top-nav {
   position: sticky;
   top: 0;
-  max-height: 100vh;
-  overflow-y: auto;
-  padding: 3.25rem 2.5rem 2.5rem;
+  z-index: 10;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-inner {
+  max-width: var(--col-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
-  flex-direction: column;
-  scrollbar-width: thin;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.7rem 0;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 500;
 }
 
 .theme-toggle {
-  position: absolute;
-  top: 1.1rem;
-  right: 1.1rem;
-  width: 2rem;
-  height: 2rem;
+  flex-shrink: 0;
+  width: 1.9rem;
+  height: 1.9rem;
   display: grid;
   place-items: center;
   border: 1px solid var(--rule);
@@ -150,111 +180,80 @@ strong {
 :root[data-theme='dark'] .icon-moon { display: none; }
 :root[data-theme='dark'] .icon-sun  { display: block; }
 
+/* ---------- Masthead ---------- */
+
+.masthead {
+  max-width: var(--col-max);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 0.5rem;
+}
+
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .portrait {
   width: 7rem;
   height: 7rem;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--rule);
-  margin-bottom: 1.4rem;
+  flex-shrink: 0;
 }
 
-.side-name {
+.masthead-name {
   font-family: var(--font-serif);
   font-optical-sizing: auto;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.01em;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.5rem;
 }
 
-.side-title {
-  font-size: 0.875rem;
-  font-weight: 500;
+.masthead-title,
+.masthead-affil {
+  font-size: 0.9rem;
   color: var(--text-soft);
 }
 
-.side-affil {
-  font-size: 0.875rem;
-  color: var(--text-soft);
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-/* Section nav */
-
-.side-nav {
-  padding: 1.4rem 0;
-}
-
-.side-nav ul {
-  list-style: none;
-}
-
-.side-nav a {
-  display: block;
-  padding: 0.22rem 0 0.22rem 0.9rem;
-  font-size: 0.84rem;
-  color: var(--text-soft);
-  border-left: 1px solid transparent;
-  margin-left: -1px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.side-nav ul {
-  border-left: 1px solid var(--rule);
-}
-
-.side-nav a:hover {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.side-nav a.active {
-  color: var(--accent);
-  border-left-color: var(--accent);
-  font-weight: 500;
-}
-
-/* Metrics, links, download */
-
-.side-metrics {
+.masthead-metrics {
   font-size: 0.8rem;
   color: var(--text-faint);
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--rule);
-  margin-bottom: 0.9rem;
+  margin-top: 0.55rem;
 }
 
-.side-metrics a {
+.masthead-metrics a {
   color: var(--text-faint);
   text-decoration: underline;
   text-decoration-color: var(--rule-strong);
   text-underline-offset: 3px;
 }
 
-.side-metrics a:hover {
+.masthead-metrics a:hover {
   color: var(--accent);
 }
 
-.side-links {
+.masthead-links {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem 0.9rem;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
   font-size: 0.84rem;
-  margin-bottom: 1.4rem;
+  margin-top: 0.8rem;
 }
 
 .btn-cv {
-  align-self: flex-start;
-  font-size: 0.82rem;
+  display: inline-block;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-soft);
   border: 1px solid var(--rule-strong);
   border-radius: 999px;
-  padding: 0.4rem 1rem;
+  padding: 0.28rem 0.9rem;
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
@@ -268,8 +267,9 @@ strong {
 /* ---------- Main content ---------- */
 
 .content {
-  padding: 3.25rem 3.5rem 2rem;
-  max-width: calc(var(--content-max) + 7rem);
+  max-width: var(--col-max);
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
 }
 
 .section {
@@ -450,7 +450,6 @@ strong {
 
 .pub-list {
   list-style: none;
-  counter-reset: none;
   display: grid;
   gap: 0.95rem;
 }
@@ -589,44 +588,20 @@ strong {
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 920px) {
-  .layout {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .masthead {
+    padding-top: 2.5rem;
   }
 
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .sidebar-inner {
-    position: static;
-    max-height: none;
-    overflow: visible;
-    padding: 2.5rem 1.5rem 2rem;
+  .masthead-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
   }
 
   .portrait {
     width: 5.5rem;
     height: 5.5rem;
-  }
-
-  .side-nav {
-    display: none;
-  }
-
-  .side-affil {
-    border-bottom: none;
-    padding-bottom: 0.3rem;
-  }
-
-  .side-metrics {
-    padding-top: 1.2rem;
-  }
-
-  .content {
-    padding: 0.6rem 1.5rem 1.5rem;
-    max-width: none;
   }
 
   .item,
@@ -697,57 +672,56 @@ strong {
   }
 
   /* Hide interactive / web-only elements */
-  .theme-toggle,
-  .side-nav,
+  .top-nav,
   .btn-cv,
   .pub-sort-controls,
   #contact {
     display: none !important;
   }
 
-  /* Linearize layout */
-  .layout {
-    display: block;
+  /* Masthead */
+  .masthead {
     max-width: none;
-  }
-
-  .sidebar {
-    border: none;
-  }
-
-  .sidebar-inner {
-    position: static;
-    max-height: none;
-    overflow: visible;
     padding: 0 0 4mm;
-    display: grid;
-    grid-template-columns: 24mm 1fr;
-    column-gap: 6mm;
     border-bottom: 1.5pt solid #222;
     margin-bottom: 4mm;
+  }
+
+  .masthead-inner {
+    gap: 6mm;
   }
 
   .portrait {
     width: 24mm;
     height: 24mm;
-    border-radius: 50%;
-    grid-row: 1 / 7;
-    margin: 0;
     border: 0.5pt solid #999;
   }
 
-  .side-name {
+  .masthead-name {
     font-size: 17pt;
     margin-bottom: 1mm;
   }
 
-  .side-title,
-  .side-affil {
+  .masthead-title,
+  .masthead-affil {
     font-size: 9.5pt;
     color: #222;
-    margin-bottom: 0.5mm;
-    border: none;
-    padding: 0;
+  }
+
+  .masthead-metrics {
+    font-size: 8pt;
+    color: #444;
+    margin-top: 1.5mm;
+  }
+
+  .masthead-links {
+    font-size: 8pt;
+    gap: 0 4mm;
+    margin-top: 1mm;
+  }
+
+  .masthead-links a {
+    color: #333;
   }
 
   .lede {
@@ -755,27 +729,9 @@ strong {
     color: #222;
   }
 
-  .side-metrics {
-    font-size: 8pt;
-    color: #444;
-    border: none;
-    padding: 1.5mm 0 0;
-    margin: 0;
-  }
-
-  .side-links {
-    font-size: 8pt;
-    gap: 0 4mm;
-    margin: 1mm 0 0;
-  }
-
-  .side-links a {
-    color: #333;
-  }
-
   .content {
-    padding: 0;
     max-width: none;
+    padding: 0;
   }
 
   .section {

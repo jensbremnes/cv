@@ -28,7 +28,7 @@
    ============================================= */
 (function initActiveNav() {
   const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('.side-nav a');
+  const navLinks = document.querySelectorAll('#nav a');
   if (!sections.length || !navLinks.length) return;
 
   function setActive(id) {

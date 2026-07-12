@@ -12,23 +12,11 @@
 <link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="layout">
 
-<!-- SIDEBAR -->
-<aside class="sidebar" id="home">
-<div class="sidebar-inner">
-<button aria-label="Toggle dark mode" class="theme-toggle" id="theme-toggle" type="button">
-<svg aria-hidden="true" class="icon-sun" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
-<svg aria-hidden="true" class="icon-moon" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-</button>
-
-<img alt="Jens Einar Bremnes" class="portrait" height="112" loading="eager" src="jens_einar_bremnes_photo.jpg" width="112"/>
-<h1 class="side-name">Jens Einar Bremnes</h1>
-<p class="side-title">PhD · Marine Cybernetics, NTNU</p>
-<p class="side-affil">Research Scientist &amp; Engineer · GeoNord AS</p>
-
-<nav aria-label="Sections" class="side-nav" id="nav">
-<ul>
+<!-- TOP NAV -->
+<nav aria-label="Sections" class="top-nav" id="nav">
+<div class="nav-inner">
+<ul class="nav-links">
 <li><a href="#research">Research</a></li>
 <li><a href="#education">Education</a></li>
 <li><a href="#positions">Experience</a></li>
@@ -40,21 +28,33 @@
 <li><a href="#skills">Skills</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+<button aria-label="Toggle dark mode" class="theme-toggle" id="theme-toggle" type="button">
+<svg aria-hidden="true" class="icon-sun" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+<svg aria-hidden="true" class="icon-moon" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+</button>
+</div>
 </nav>
 
-<p class="side-metrics"><span id="stat-citations">136</span> citations · h-index <span id="stat-hindex">7</span> · <a href="https://scholar.google.com/citations?user=iGO-GD4AAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar</a></p>
-
-<ul class="side-links">
+<!-- MASTHEAD -->
+<header class="masthead" id="home">
+<div class="masthead-inner">
+<img alt="Jens Einar Bremnes" class="portrait" height="112" loading="eager" src="jens_einar_bremnes_photo.jpg" width="112"/>
+<div class="masthead-info">
+<h1 class="masthead-name">Jens Einar Bremnes</h1>
+<p class="masthead-title">PhD · Marine Cybernetics, NTNU</p>
+<p class="masthead-affil">Research Scientist &amp; Engineer · GeoNord AS</p>
+<p class="masthead-metrics"><span id="stat-citations">136</span> citations · h-index <span id="stat-hindex">7</span> · <a href="https://scholar.google.com/citations?user=iGO-GD4AAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar</a></p>
+<ul class="masthead-links">
 <li><a href="mailto:jensbremnes@gmail.com">Email</a></li>
 <li><a href="https://github.com/jensbremnes" rel="noopener" target="_blank">GitHub</a></li>
 <li><a href="https://orcid.org/0000-0002-5917-5281" rel="noopener" target="_blank">ORCID</a></li>
 <li><a href="https://www.linkedin.com/in/jensbremnes/" rel="noopener" target="_blank">LinkedIn</a></li>
 <li><a href="https://www.researchgate.net/profile/Jens-Bremnes-2" rel="noopener" target="_blank">ResearchGate</a></li>
+<li><a class="btn-cv" download="" href="JensEinarBremnes_CV.pdf">Download CV (PDF)</a></li>
 </ul>
-
-<a class="btn-cv" download="" href="JensEinarBremnes_CV.pdf">Download CV (PDF)</a>
 </div>
-</aside>
+</div>
+</header>
 
 <!-- MAIN -->
 <main class="content">
@@ -523,7 +523,6 @@
 </footer>
 
 </main>
-</div>
 <script src="main.js"></script>
 </body>
 </html>
