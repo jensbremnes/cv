@@ -16,7 +16,7 @@ test('nav links', async ({ page }) => {
 });
 
 test('github link', async ({ page }) => {
-  const link = page.locator('#contact a[href="https://github.com/jensbremnes"]');
+  const link = page.locator('.masthead-links a[href="https://github.com/jensbremnes"]');
   await expect(link).toHaveCount(1);
 });
 
@@ -78,6 +78,20 @@ test('theme toggle switches and persists', async ({ page }) => {
 
   await page.locator('#theme-toggle').click();
   await expect(html).not.toHaveAttribute('data-theme', 'dark');
+});
+
+test('news section visible on screen', async ({ page }) => {
+  await expect(page.locator('#news')).toBeVisible();
+});
+
+test('print-only content hidden on screen', async ({ page }) => {
+  await expect(page.locator('#skills')).toBeHidden();
+  await expect(page.locator('#contact dt', { hasText: 'Phone' })).toHaveCount(0);
+});
+
+test('publication titles link out', async ({ page }) => {
+  const links = page.locator('.pub-title a[href^="https://doi.org/"]');
+  expect(await links.count()).toBeGreaterThanOrEqual(15);
 });
 
 test('publication sort by citations reorders entries', async ({ page }) => {
