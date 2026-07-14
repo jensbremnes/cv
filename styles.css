@@ -587,6 +587,13 @@ strong {
   color: var(--text);
 }
 
+/* Talks & service */
+
+.service-note {
+  font-size: 0.875rem;
+  color: var(--text-soft);
+}
+
 /* Skills & contact definition lists */
 
 .skills,
